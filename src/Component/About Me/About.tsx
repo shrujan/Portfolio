@@ -20,16 +20,16 @@ const About = () => {
 
                     <div className="col-1-of-2 about-section__contact">
                         <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
-                            Resume
+                            <span>Resume</span>
                         </a>
                         <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
-                            Linkedin
+                            <span>Linkedin</span>
                         </a>
                         <a className=" contact-option util-margin-bottom-small " href="mailto:shrork@gmail.com"> 
-                            Mail
+                            <span>Mail</span>
                         </a>
                         <a className="contact-option util-margin-bottom-small" target="_blank" href="https://github.com/shrujan">
-                            Github
+                            <span>Github</span>
                         </a>
                     </div>
                     

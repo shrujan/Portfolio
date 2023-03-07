@@ -65,12 +65,28 @@ $font-size: 1.6rem;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        gap: 20px;
         font-size: $font-size;
         .contact-option {
             text-decoration: none;
             display: block;
             text-align: center;
+            margin-bottom: 0px;
             cursor: pointer;
+            transition: all 1ms;
+            > span {
+                font-weight: 600;
+                transform: skew(-20deg);
+            }
+            &:hover {
+                padding: 0px 10px;
+                background: $color-light-green;
+                border-radius: 20px;
+                transition: background 0.3s;
+                > span {
+                    transform: skew(-20deg);
+                }
+            }
         }
     }
 
