@@ -1,0 +1,195 @@
+@import '../../Styles/_globalVariables.scss';
+@import './_animations';
+
+
+.header {
+    background-image: linear-gradient(to right bottom,  
+        rgba($color-light-green, 0.8), 
+        rgba($color-dark-green, 0.8) ) ,
+        url('../../Assets/Img/hero.jpg');
+    /* this sets the image within the header only no mater the size  */
+    background-size: cover;
+    /* sets the image height to 90% of view height - screen height */
+    height: 95vh;
+    /* this retains the top of the image and crops the bottom in when viewed on mobile  */
+    /* center - retains the center of image 
+    bottom - retains the bottom of image and crops top */
+    background-position: top;
+    /* clip a element in a shape of a polygon, can have multiple shapes and multiple points  */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* arrow shape  https://bennettfeely.com/clippy/ */
+    /* clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%); */
+    /* triangle  */
+    /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
+    position: relative;
+
+    &__logo-container {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+        
+        .header__logo {
+            height: 3.5rem;
+        }
+    }
+
+    &__header-text-btn-container {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* move the div -50%  on x axis and -50% on y axis  */
+        transform: translate(-50%, -50%);
+        text-align: center;   
+    }
+
+}
+
+
+
+
+
+.header-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    /* to render animation smoothlly, in our case there was a small flicker at the end of the animation VID8  */
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+    
+    &--main-header {
+        display:block;
+        letter-spacing: 1rem;
+        font-size: 5rem;
+        font-weight: 400;
+        text-align: center;
+        
+        animation-name: fadeInFromLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+
+        /* animation-delay: 3s; */
+        /* animation-iteration-count: infinite; */
+    }
+
+    &--sub-header {
+        font-size: 2rem;
+        font-weight: 700;
+        /* space between letter in text  */
+        letter-spacing: 1.7rem;
+        display:block;
+        text-align: center;
+
+        /* animation-name: fadeInFromRight;
+        animation-duration: 2s;
+        animation-timing-function: ease-out; */
+        animation: fadeInFromRight 2s ease-out;
+    }
+
+}
+
+.btn {
+    /* here we override the default a tag properties like color and underline and before,  after 
+    the user has visited the link eg purple color of a tag once clicked  */
+    &:link,
+    &:visited {
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5rem 4rem;
+
+        /* inline does not respect top and bottom margin and padding so use inline block to respect them
+        inline cannot set width and height
+        inline and inline block allows elements left and right of it
+        https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block */
+        display: inline-block;
+        border-radius: 10rem;
+
+        /* simple animation to move button as per css transoform set below, ie hover and active 
+        always set on default of the element*/
+        // transition: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+
+        
+    }
+
+    &--btn-animated {
+        /* name, duration of animation, ease-out and start after delay of .75 sec after other animation  */
+        animation: fadeInFromBottom .5s ease-out .75s;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+        /*
+        backwards -  apply the zero percent css before the animation starts  
+        forward - apply the 100% css at before the beginning of the animation
+        */
+        animation-fill-mode: backwards;
+
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+
+        background-position: left;
+
+
+        /* box shadow property to show the user a black shadow below the button on hover 
+        first prop - 0 - x axix box-shadow ; 
+        second prop - 1rem - y axis shadow 
+        blur - initially show more blur 
+        rgba - black color with opacity 0.2*/
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+
+            /* scale the psuedo elememnt on hover by 1.5 on x and 1.7 on y times the original size of the button  */
+            transform: scaleX(1.4) scaleY(1.6);
+            
+            /* to fadeout the pseudo element  */
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        /* box shadow property to show the user a black shadow below the button on click 
+        first prop - 0 - x axix box-shadow ; 
+        second prop - .5rem - y axis shadow  to show its closer to page
+        blur - 1rem  -  show less blur on click
+        rgba - black color with opacity 0.2*/
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &--btn-white {
+        color: $color-grey;
+        background-color: $color-white;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    /* after pseudo element to add effects
+    this is usually behind the real button and when needed moves to foreground */
+    &::after {
+        /* content is mandatory - could be empty */
+        content: '';
+        display: inline-block; /* because btn is also inline block*/
+        /* height and width can be 100% as this pseudo elemement is child of actual btn  */
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        /* position absolute depends on parent relative pos  */
+        position: absolute;
+        /* done to position the pseudo element right below the actual button  */
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all .4s ;
+    }
+
+    
+
+
+    
+}
+

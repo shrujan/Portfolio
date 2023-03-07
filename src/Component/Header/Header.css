@@ -1,0 +1,269 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+/* remove default style like border padding and margin from all elements  */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* make box sizing in child element inherit the parent which is now set in body tag 
+    by default box-sizing does not inherit */
+    box-sizing: inherit; 
+}
+
+html {
+    /*VID 18:  rem is always in relation to root font-size default is 16px
+    1 rem is now 10 px  - this can be used as global config for responsive pages
+    em depends on parent element*/
+    font-size: 10px; 
+
+    /* but adding px for font-size is bad practice as it resets default browser font 
+        and it cannot be changed by user
+        as we want the default font size to 10px div and default is 16 we div 10/16  
+    */
+    font-size: 62.5%;
+
+    
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 20px; */
+     /* line height is now 1.7 times larger than default  */
+    line-height: 1.7;
+    color: #777777;
+    padding: 3rem;
+
+    /* remove default border and padding  */
+    box-sizing: border-box; 
+    
+}
+
+.header {
+    background-image: linear-gradient(to right bottom,  #7ed56fce, #28b485c4 ) ,url('../../Assets/Img/hero.jpg');
+    /* this sets the image within the header only no mater the size  */
+    background-size: cover;
+    /* sets the image height to 90% of view height - screen height */
+    height: 90vh;
+    /* this retains the top of the image and crops the bottom in when viewed on mobile  */
+    /* center - retains the center of image 
+    bottom - retains the bottom of image and crops top */
+    background-position: top;
+    /* clip a element in a shape of a polygon, can have multiple shapes and multiple points  */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    /* arrow shape  https://bennettfeely.com/clippy/ */
+    /* clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%); */
+    /* triangle  */
+    /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
+    position: relative;
+
+}
+
+.header__logo-container {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+}
+
+.header__logo-container .header__logo {
+    height: 3.5rem;
+}
+
+.header__header-text-btn-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* move the div -50%  on x axis and -50% on y axis  */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-primary {
+    color: #ffffff;
+    text-transform: uppercase;
+
+    /* to render animation smoothlly, in our case there was a small flicker at the end of the animation VID8  */
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+}
+
+.header-primary--main-header {
+    display:block;
+    letter-spacing: 1rem;
+    font-size: 5rem;
+    font-weight: 400;
+    text-align: center;
+    
+    animation-name: fadeInFromLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: infinite; */
+}
+
+.header-primary--sub-header {
+    font-size: 2rem;
+    font-weight: 700;
+    /* space between letter in text  */
+    letter-spacing: 1.7rem;
+    display:block;
+    text-align: center;
+
+    /* animation-name: fadeInFromRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-out; */
+    animation: fadeInFromRight 2s ease-out;
+    
+}
+
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+
+    }
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* here we override the default a tag properties like color and underline and before,  after 
+the user has visited the link eg purple color of a tag once clicked  */
+.btn:link,
+.btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+
+    /* inline does not respect top and bottom margin and padding so use inline block to respect them
+    inline cannot set width and height
+    inline and inline block allows elements left and right of it
+    https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block */
+    display: inline-block;
+    border-radius: 10rem;
+
+     /* simple animation to move button as per css transoform set below, ie hover and active 
+     always set on default of the element*/
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+
+    
+}
+
+.btn-animated {
+    /* name, duration of animation, ease-out and start after delay of .75 sec after other animation  */
+    animation: fadeInFromBottom .5s ease-out .75s;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+    /*
+    backwards -  apply the zero percent css before the animation starts  
+    forward - apply the 100% css at before the beginning of the animation
+     */
+    animation-fill-mode: backwards;
+
+}
+
+.btn:hover {
+    transform: translateY(-.3rem);
+
+    /* box shadow property to show the user a black shadow below the button on hover 
+    first prop - 0 - x axix box-shadow ; 
+    second prop - 1rem - y axis shadow 
+    blur - initially show more blur 
+    rgba - black color with opacity 0.2*/
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem);
+     /* box shadow property to show the user a black shadow below the button on click 
+    first prop - 0 - x axix box-shadow ; 
+    second prop - .5rem - y axis shadow  to show its closer to page
+    blur - 1rem  -  show less blur on click
+    rgba - black color with opacity 0.2*/
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--btn-white {
+    color: #777777;
+    background-color: #ffffff;
+}
+
+/* after pseudo element to add effects
+this is usually behind the real button and when needed moves to foreground */
+.btn::after {
+    /* content is mandatory - could be empty */
+    content: '';
+    display: inline-block; /* because btn is also inline block*/
+    /* height and width can be 100% as this pseudo elemement is child of actual btn  */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* position absolute depends on parent relative pos  */
+    position: absolute;
+    /* done to position the pseudo element right below the actual button  */
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all .4s ;
+}
+
+.btn--btn-white::after {
+    background-color: #ffffff;
+}
+
+
+.btn:hover::after {
+
+    /* scale the psuedo elememnt on hover by 1.5 on x and 1.7 on y times the original size of the button  */
+    transform: scaleX(1.4) scaleY(1.6);
+    
+    /* to fadeout the pseudo element  */
+    opacity: 0;
+}
