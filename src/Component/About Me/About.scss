@@ -61,6 +61,10 @@ $font-size: 1.6rem;
     }
 
     &__contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         font-size: $font-size;
         .contact-option {
             text-decoration: none;
