@@ -19,7 +19,7 @@ const About = () => {
                     </div>
 
                     <div className="col-1-of-2 about-section__contact">
-                        <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
+                        <a className="contact-option util-margin-bottom-small " target="_blank" href="/Assets/Resume/ShrujanShetty.pdf" download={ true }>
                             <span>Resume</span>
                         </a>
                         <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
