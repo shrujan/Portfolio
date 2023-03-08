@@ -3,94 +3,99 @@
 $font-size: 1.6rem;
 
 .about-section {
-    background-color: $color-light-grey;
-    padding: 25rem 0;
-    margin-top: -20vh;
-    
+  background-color: $color-light-grey;
+  padding: 25rem 0;
+  margin-top: -20vh;
 
-    &-header {
-        font-size: 3rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        
-        // set the background color and gradient color for text
-        // 1: set background gradient image
-        background-image: linear-gradient(to right, $color-light-green, $color-dark-green);
-        // 2: display the gradient only till the text ends 
-        display: inline-block;
-        // show the gradient inside the text
-        background-clip: text; //show the background only inside the text
-        color:transparent;
 
-        letter-spacing: .2rem;
-        // effect look smoother
-        transition: all .9 ease-in;
+  &-header {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
 
-        // effect on hover
-        &:hover {
-            // scale 110 - 10% more than original 
-            // skew in y direction by 2 degree and skew x by 15 deg
-            // transform: skewY(2deg) skewX(15deg) scale(1.1);
-            transform: scale(1.2) translateY(-.2rem);
+    // set the background color and gradient color for text
+    // 1: set background gradient image
+    background-image: linear-gradient(to right, $color-light-green, $color-dark-green);
+    // 2: display the gradient only till the text ends 
+    display: inline-block;
+    // show the gradient inside the text
+    background-clip: text; //show the background only inside the text
+    color: transparent;
 
-            // text shadow x y blur, rgba with opacity
-            text-shadow: .2rem .2rem .4rem rgba( #000000, .2);
-            
+    letter-spacing: .2rem;
+    // effect look smoother
+    transition: all .9 ease-in;
+
+    // effect on hover
+    &:hover {
+      // scale 110 - 10% more than original 
+      // skew in y direction by 2 degree and skew x by 15 deg
+      // transform: skewY(2deg) skewX(15deg) scale(1.1);
+      transform: scale(1.2) translateY(-.2rem);
+
+      // text shadow x y blur, rgba with opacity
+      text-shadow: .2rem .2rem .4rem rgba(#000000, .2);
+
+    }
+
+
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .heading-tertiary {
+      font-size: $font-size;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .description {
+      font-size: $font-size;
+      max-width: 50%;
+      @media screen and (max-width: $responsiveBreakpoint) {
+          max-width: 80%;
+      }
+      &:not(:lastChild) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: $font-size;
+    margin-top: 3rem;
+    @media screen and (max-width: $responsiveBreakpoint) {
+      gap: 10px;
+    }
+    .contact-option {
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 0px;
+      cursor: pointer;
+      transition: all 1ms;
+      padding: 0px 10px;
+      > span {
+        font-weight: 600;
+        transform: skew(-20deg);
+      }
+
+      &:hover {
+        background: $color-light-green;
+        border-radius: 20px;
+        transition: background 0.3s;
+        >span {
+          transform: skew(-20deg);
         }
-
-        
+      }
     }
-
-    &__details {
-     
-       .heading-tertiary {
-           font-size: $font-size;
-           font-weight: 700;
-           text-transform: uppercase;
-       }
-
-       .description {
-           font-size: $font-size;
-           &:not(:lastChild) {
-               margin-bottom: 3rem;
-           }
-
-       }
-
-      
-    }
-
-    &__contact {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 20px;
-        font-size: $font-size;
-        .contact-option {
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            margin-bottom: 0px;
-            cursor: pointer;
-            transition: all 1ms;
-            > span {
-                font-weight: 600;
-                transform: skew(-20deg);
-            }
-            &:hover {
-                padding: 0px 10px;
-                background: $color-light-green;
-                border-radius: 20px;
-                transition: background 0.3s;
-                > span {
-                    transform: skew(-20deg);
-                }
-            }
-        }
-    }
-
-
+  }
 }
-
-

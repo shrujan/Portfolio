@@ -9,7 +9,7 @@ const About = () => {
                         More About me 
                     </h2>
                 </div>
-                <div className="row">
+                <div>
                     <div className="col-1-of-2 about-section__details">
                         <h3 className="heading-tertiary util-margin-bottom-small">Who am I?</h3>
                         <p className="description util-margin-bottom-small ">
