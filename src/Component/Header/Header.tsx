@@ -14,9 +14,9 @@ const Header = () => {
                 <div className="header__header-text-btn-container">
                         <h1 className="header-primary">
                             <span className="header-primary--main-header">Shrujan Shetty</span>
-                            <span className="header-primary--sub-header">senior front end engineer</span>
+                            <span className="header-primary--sub-header">Senior front end engineer</span>
                         </h1>
-                        <a href="#" className="btn btn--btn-white btn--btn-animated">Discover More</a>
+                        <a href="#about-me" className="btn btn--btn-white btn--btn-animated">Discover More</a>
                 </div>
             
             {/* </header> */}
