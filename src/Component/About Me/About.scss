@@ -47,7 +47,25 @@ $font-size: 1.6rem;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    > .logo-container {
+      top: 4rem;
+      left: 4rem;
+      height: 110px;
+      width: 110px;
+      margin-bottom: 1.5rem;
+      @media screen and (max-width: $responsiveBreakpoint) {
+          top: 3.5rem;
+          left: 3.5rem;
+          height: 80px;
+          width: 80px;
+      }
+      .header__logo {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          border: 2px solid $color-grey;
+      }
+    }
     .heading-tertiary {
       font-size: $font-size;
       font-weight: 700;

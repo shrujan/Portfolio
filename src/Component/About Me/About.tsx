@@ -1,4 +1,5 @@
-import './About.scss'
+import './About.scss';
+import shrujanImg from '../../Assets/Img/passport-photo.jpg';
 
 const About = () => {
     return (
@@ -11,6 +12,9 @@ const About = () => {
                 </div>
                 <div>
                     <div className="col-1-of-2 about-section__details">
+                        <div className="logo-container">
+                            <img src={shrujanImg} alt="Shrujan Shetty" className="header__logo" />
+                        </div>
                         <h3 className="heading-tertiary util-margin-bottom-small">Who am I?</h3>
                         <p className="description util-margin-bottom-small ">
                             Hi, my name is Shrujan Shetty and I am a Software Engineer with over 10+ years of experience based in India. I enjoy building rich interactive web applications that people enjoy using.
