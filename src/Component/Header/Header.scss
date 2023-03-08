@@ -3,10 +3,13 @@
 
 
 .header {
+    // background-image: linear-gradient(to right bottom,  
+    //     rgba($color-light-green, 0.8), 
+    //     rgba($color-dark-green, 0.8) ) ,
+    //     url('../../Assets/Img/hero.jpg');
     background-image: linear-gradient(to right bottom,  
         rgba($color-light-green, 0.8), 
-        rgba($color-dark-green, 0.8) ) ,
-        url('../../Assets/Img/hero.jpg');
+        rgba($color-dark-green, 0.8) );
     /* this sets the image within the header only no mater the size  */
     background-size: cover;
     /* sets the image height to 90% of view height - screen height */
@@ -27,9 +30,19 @@
         position: absolute;
         top: 4rem;
         left: 4rem;
-        
+        height: 110px;
+        width: 110px;
+        @media screen and (max-width: $responsiveBreakpoint) {
+            top: 3.5rem;
+            left: 3.5rem;
+            height: 80px;
+            width: 80px;
+        }
         .header__logo {
-            height: 3.5rem;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 2px solid $color-white;
         }
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import logoWhite from '../../Assets/Img/logo-white.png';
+import shrujanImg from '../../Assets/Img/passport-photo.jpg';
 import Aux from '../../HOC/Auxilary';
 import addHeader from '../../HOC/addHeader';
 
@@ -9,7 +9,7 @@ const Header = () => {
         <Aux>
             {/* <header  className="header"> */}
                 <div className="header__logo-container">
-                    <img src={logoWhite} alt="Shrujan Shetty" className="header__logo" />
+                    {/* <img src={shrujanImg} alt="Shrujan Shetty" className="header__logo" /> */}
                 </div>
                 <div className="header__header-text-btn-container">
                         <h1 className="header-primary">
