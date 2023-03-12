@@ -3,11 +3,15 @@
 $font-size: 1.6rem;
 
 .about-section {
-  background-color: $color-light-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   padding: 25rem 0px;
   margin-top: -20vh;
-  margin-bottom: -80px;
-
+  margin-bottom: -14vh;
+  min-height: 60vh;
+  background-color: $color-light-grey;
   &-header {
     font-size: 3rem;
     text-transform: uppercase;
