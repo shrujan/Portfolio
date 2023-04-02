@@ -1,5 +1,6 @@
 import './About.scss';
 import shrujanImg from '../../Assets/Img/passport-photo.jpg';
+// import resume from '../../Assets/Resume/ShrujanShetty.pdf';
 
 
 const About = () => {
@@ -14,7 +15,7 @@ const About = () => {
                 <div>
                     <div className="col-1-of-2 about-section__details">
                         <div className="logo-container">
-                            <img src={shrujanImg} alt="Shrujan Shetty" className="header__logo" />
+                            <img src={ shrujanImg } alt="Shrujan Shetty" className="header__logo" />
                         </div>
                         <h3 className="heading-tertiary util-margin-bottom-small">Who am I?</h3>
                         <p className="description util-margin-bottom-small ">
@@ -24,7 +25,7 @@ const About = () => {
                     </div>
 
                     <div className="col-1-of-2 about-section__contact">
-                        <a className="contact-option util-margin-bottom-small " target="_blank" href="./Assets/Resume/ShrujanShetty.pdf" download={ true }>
+                        <a className="contact-option util-margin-bottom-small " target="_blank" href={ require('../../Assets/Resume/ShrujanShetty.pdf') } download={ true }>
                             <span>Resume</span>
                         </a>
                         <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
