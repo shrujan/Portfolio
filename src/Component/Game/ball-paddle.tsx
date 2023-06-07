@@ -4,6 +4,8 @@ const BallGame = () => {
   const ballCanvasRef         = useRef<HTMLCanvasElement | null>(null);
   const [ canvas, setCanvas ] = useState<HTMLCanvasElement | null>(null);
   const [ ctx, setCtx ]       = useState<CanvasRenderingContext2D | null>(null);
+  
+  let score = 0;
 
   // create a ball
   const ball = {
@@ -37,6 +39,7 @@ const BallGame = () => {
     ctx.closePath();
   }
 
+  // draw paddle on canvas
   const drawPaddle = () => {
     if (!ctx) return false;
 
@@ -45,6 +48,13 @@ const BallGame = () => {
     ctx.fillStyle = '#0095dd';
     ctx.fill();
     ctx.closePath();
+  }
+
+  const drawScore = () => {
+    if (!ctx || !canvas) return;
+
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score ${ score }`, canvas.width - 50, 30);
   }
 
   useEffect(() => {
@@ -58,6 +68,7 @@ const BallGame = () => {
   useEffect(() => {
     drawBall();
     drawPaddle();
+    drawScore();
   }, [ canvas, ctx ])
   
   return <canvas ref={ ballCanvasRef }>
