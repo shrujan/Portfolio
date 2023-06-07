@@ -1,4 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import styles from './ball-paddle.module.scss'
+
+interface Brick {
+  w: number;
+  h: number;
+  padding: number;
+  offsetX: number;
+  offsetY: number;
+  visible: boolean;
+  x: number;
+  y: number;
+}
 
 const BallGame = () => {
   const ballCanvasRef         = useRef<HTMLCanvasElement | null>(null);
@@ -7,7 +19,10 @@ const BallGame = () => {
   
   let score = 0;
 
-  // create a ball
+  const brickRowCount    = 9;
+  const brickColumnCount = 5
+
+  // create a ball props
   const ball = {
     x: canvas ? canvas.width / 2 : 0,
     y: canvas ? canvas.height / 2 : 0,
@@ -17,7 +32,7 @@ const BallGame = () => {
     dy: -4
   }
 
-  // create paddle 
+  // create paddle props
 
   const paddle = {
     x: canvas ? (canvas.width / 2) - 40 : 0, // width of paddle is 80
@@ -26,6 +41,15 @@ const BallGame = () => {
     w: 80,
     speed: 8,
     dx: 0
+  }
+
+  const brickInfo = {
+    w: 70,
+    h: 20,
+    padding: 10,
+    offsetX: 45,
+    offsetY: 60,
+    visible: true
   }
 
   // draw ball on canvas
@@ -54,7 +78,36 @@ const BallGame = () => {
     if (!ctx || !canvas) return;
 
     ctx.font = '20px Arial';
-    ctx.fillText(`Score ${ score }`, canvas.width - 50, 30);
+    ctx.fillText(`Score ${ score }`, canvas.width - 120, 30);
+  }
+
+  const drawBricks = () => {
+    if (!ctx || !canvas) return
+    // set positioning for each brick
+    const bricks: Brick[][] = [];
+    for (let i = 0; i < brickRowCount; i++) {
+      bricks[i] = [];
+
+      for(let j = 0; j < brickColumnCount; j++) {
+        const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
+        const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
+
+        bricks[i][j] = { x, y, ...brickInfo }
+      }
+
+      // draw the brick
+
+      bricks.forEach(brickCol => {
+        brickCol.forEach(brick => {
+          ctx.beginPath();
+          ctx.rect(brick.x, brick.y, brick.w, brick.h);
+          ctx.fillStyle = brick.visible ? "#0095dd" : 'transparent';
+          ctx.fill();
+          ctx.closePath();
+        })
+      })
+
+    }
   }
 
   useEffect(() => {
@@ -69,9 +122,10 @@ const BallGame = () => {
     drawBall();
     drawPaddle();
     drawScore();
+    drawBricks();
   }, [ canvas, ctx ])
   
-  return <canvas ref={ ballCanvasRef }>
+  return <canvas className={ styles['ball-game'] } width={ '800px' }  height={ '600px' } ref={ ballCanvasRef }>
   </canvas>
 }
 
