@@ -92,7 +92,7 @@ const BallGame = () => {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
 
-        bricks[i][j] = { x, y, ...brickInfo }
+        bricks[i][j] = { x, y, ...brickInfo };
       }
 
       // draw the brick
