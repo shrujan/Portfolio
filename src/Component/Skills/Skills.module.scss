@@ -1,0 +1,14 @@
+@import '../../Styles/_globalVariables.scss';
+
+.skills-section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 40%;
+  height: 40vh;
+  // background-image: linear-gradient(to right bottom,  
+  //   rgba($color-light-green, 0.8), 
+  //   rgba($color-dark-green, 0.8) );
+  // background-size: cover;
+  font-size: 2rem;
+}
