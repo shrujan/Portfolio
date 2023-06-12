@@ -89,6 +89,14 @@ $font-size: 1.6rem;
     }
   }
 
+  &__skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2.5rem 0px;
+  }
+
   &__contact {
     display: flex;
     align-items: center;

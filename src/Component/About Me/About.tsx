@@ -1,5 +1,6 @@
 import './About.scss';
 import shrujanImg from '../../Assets/Img/passport-photo.jpg';
+import Skills from '../Skills/Skills';
 // import resume from '../../Assets/Resume/ShrujanShetty.pdf';
 
 
@@ -24,6 +25,15 @@ const About = () => {
                         <p className="description"> If you are an employer looking to hire, feel free to get in touch on Linkedin or drop an Email.</p>
                     </div>
 
+                    <div className="about-section__skills">
+                        <div className="util-center-text">
+                            <h2 className="about-section-header util-margin-bottom-8">
+                                Skills
+                            </h2>
+                        </div>
+                        <Skills></Skills>
+                    </div>
+
                     <div className="col-1-of-2 about-section__contact">
                         <a className="contact-option util-margin-bottom-small " target="_blank" href={ require('../../Assets/Resume/ShrujanShetty.pdf') } download={ 'ShrujanShetty.pdf' }>
                             <span>Resume</span>
@@ -38,9 +48,8 @@ const About = () => {
                             <span>Github</span>
                         </a>
                     </div>
-                    
                 </div>
-            </section> 
+            </section>
         </main>
         
     )

@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <Header></Header>
       <About></About>
-      <Skills></Skills>
       <footer></footer>
       {/* <BallGame></BallGame> */}
     </div>
