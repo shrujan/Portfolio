@@ -1,4 +1,5 @@
-import styles from './Skills.module.scss'
+import styles from './Skills.module.scss';
+import angularSVG from '../../Assets/Img/Angular.svg';
 
 const Skills = () => {
   return <section className={ styles['skills-section'] }>
