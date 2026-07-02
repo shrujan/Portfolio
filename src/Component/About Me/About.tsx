@@ -1,6 +1,6 @@
 import './About.scss';
 import shrujanImg from '../../Assets/Img/passport-photo.jpg';
-// import resume from '../../Assets/Resume/ShrujanShetty.pdf';
+import resume from '../../Assets/Resume/ShrujanShetty.pdf';
 
 
 const About = () => {
@@ -25,7 +25,7 @@ const About = () => {
                     </div>
 
                     <div className="col-1-of-2 about-section__contact">
-                        <a className="contact-option util-margin-bottom-small " target="_blank" href={ require('../../Assets/Resume/ShrujanShetty.pdf') } download={ 'ShrujanShetty.pdf' }>
+                        <a className="contact-option util-margin-bottom-small " href={resume} download="ShrujanShetty.pdf" rel="noopener noreferrer">
                             <span>Resume</span>
                         </a>
                         <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
