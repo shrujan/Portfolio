@@ -1,6 +1,5 @@
 import './About.scss';
 import shrujanImg from '../../Assets/Img/passport-photo.jpg';
-// import resume from '../../Assets/Resume/ShrujanShetty.pdf';
 
 
 const About = () => {
@@ -25,16 +24,16 @@ const About = () => {
                     </div>
 
                     <div className="col-1-of-2 about-section__contact">
-                        <a className="contact-option util-margin-bottom-small " target="_blank" href={ require('../../Assets/Resume/ShrujanShetty.pdf') } download={ 'ShrujanShetty.pdf' }>
+                        <a className="contact-option util-margin-bottom-small " href="/ShrujanShetty.pdf" download="ShrujanShetty.pdf" rel="noopener noreferrer">
                             <span>Resume</span>
                         </a>
-                        <a className="contact-option util-margin-bottom-small " target="_blank" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
+                        <a className="contact-option util-margin-bottom-small " target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/shrujan-shetty-78141b30/">
                             <span>Linkedin</span>
                         </a>
                         <a className=" contact-option util-margin-bottom-small " href="mailto:shrork@gmail.com"> 
                             <span>Mail</span>
                         </a>
-                        <a className="contact-option util-margin-bottom-small" target="_blank" href="https://github.com/shrujan">
+                        <a className="contact-option util-margin-bottom-small" target="_blank" rel="noopener noreferrer" href="https://github.com/shrujan">
                             <span>Github</span>
                         </a>
                     </div>

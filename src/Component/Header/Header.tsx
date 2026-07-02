@@ -1,6 +1,4 @@
-import React from 'react';
 import './Header.scss';
-import shrujanImg from '../../Assets/Img/passport-photo.jpg';
 import Aux from '../../HOC/Auxilary';
 import addHeader from '../../HOC/addHeader';
 
